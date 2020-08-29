@@ -52,5 +52,21 @@ def delete_user_by_password():
         print("Bu şifrədə istifadəçi tapılmadı!")
 
 
-delete_user_by_password()
 # İstifadəçi məlumatlarını koda görə sil (son)
+
+# İstifadəçi məlumatlarını koda görə dəyiş (başlanğıc)
+def change_data_by_password():
+    change_by_password = input("Məlumat(lar)ı dəyişmək üçün istifadəçi şifrəsi daxil edin : ")
+    for user in istifadeci_bazasi:
+        if change_by_password == user.password:
+            user.name = input("Yeni adınızı daxil edin : ")
+            user.surname = input("Yeni soyadınızı daxil edin : ")
+            user.username = input("Yeni istifadəçi adınızı daxil edin : ")
+            user.password = input("Yeni şifrənizi daxil edin : ")
+            istifadeci_bazasi.append(User(user.name, user.surname, user.username, user.password))
+            print(f"{user.name} / {user.surname} / {user.username} / {user.password}")
+        else:
+            print("Bu şifrədə istifadəçi tapılmadı!")
+
+
+change_data_by_password()
