@@ -69,4 +69,5 @@ def change_data_by_password():
             print("Bu şifrədə istifadəçi tapılmadı!")
 
 
+
 change_data_by_password()
