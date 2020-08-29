@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06a15331-a19a-4794-8783-4611f3d733ac" name="Default Changelist" comment="v1.1">
-      <change beforePath="$PROJECT_DIR$/log_reg_sys.py" beforeDir="false" afterPath="$PROJECT_DIR$/log_reg_sys.py" afterDir="false" />
+    <list default="true" id="06a15331-a19a-4794-8783-4611f3d733ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598700874699</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v1.1.1">
+      <created>1598701086067</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598701086067</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -163,6 +170,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1" />
+    <MESSAGE value="v1.1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.1.1" />
   </component>
 </project>
