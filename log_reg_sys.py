@@ -12,15 +12,38 @@ class User:
 istifadeci_bazasi = []
 
 
+def check_name(name):
+    global input_name
+    while name.isalpha() == False:
+        print("Adınızda yalnız əlifbadan istifadə edə bilərsiniz!")
+        name = input("Adınızı daxil edin")
+    input_name = name
+
+
+def check_surname(surname):
+    global input_surname
+    while surname.isalpha() == False:
+        print("Soyadınızda yalnız əlifbadan istifadə edə bilərsiniz!")
+        name = input("Adınızı daxil edin")
+    input_surname = surname
+
+
 # İstifadəçi əlavə etmək üçün funksiya (başlanğıc)
 def user_add():
     i = 0
     user_count = int(input("Neçə istifadəçi daxil etmək istəyirsiniz? (rəqəm daxil edin) : "))
     while i < user_count:
         input_name = input("Adınızı daxil edin : ")
+        check_name(input_name)
         input_surname = input("Soyadınızı daxil edin : ")
+        check_surname(input_surname)
         input_username = input("İstifadəçi adınızı daxil edin : ")
-        input_password = input("Şifrənizi daxil edin : ")
+        input_password = input("Yeni şifrənizi daxil edin : ")
+
+        if len(input_password) == 3:
+            print(input_password)
+        else:
+            print("3 rəqəmli şifrə daxil edin!")
         i += 1
         istifadeci_bazasi.append(User(input_name, input_surname, input_username, input_password))
 
@@ -62,12 +85,19 @@ def change_data_by_password():
             user.name = input("Yeni adınızı daxil edin : ")
             user.surname = input("Yeni soyadınızı daxil edin : ")
             user.username = input("Yeni istifadəçi adınızı daxil edin : ")
-            user.password = input("Yeni şifrənizi daxil edin : ")
+
             istifadeci_bazasi.append(User(user.name, user.surname, user.username, user.password))
             print(f"{user.name} / {user.surname} / {user.username} / {user.password}")
         else:
             print("Bu şifrədə istifadəçi tapılmadı!")
 
 
-
-change_data_by_password()
+"""     try:
+            input_password = input("Şifrənizi daxil edin : ")
+        except NameError:
+            if "@" not in input_password:
+                print("E-mailinizdə \'@\' işarəsi mövcud deyil!")
+                continue
+        else:
+            pass
+"""
