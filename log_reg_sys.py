@@ -29,20 +29,20 @@ def check_surname(surname):  # ?
 
 def check_telefon(telefon):
     while not len(telefon) == 9 or not telefon.isdigit():
-        print("Səhvlik! +994 əlavə etməyin, yaxud yalnız rəqəmlərdən istifadə edin!")
+        print("\"Səhvlik! +994 əlavə etməyin, yaxud yalnız rəqəmlərdən istifadə edin!\"")
         telefon = input("Yenidən telefon nömrənizi daxil edin : ")
 
 
 def check_email(email):
-    while "@" not in email:
-        print("E-mailinizdə \"@\" işarəsi mövcud deyil!")
-        input("Yenidən e-mailinizi daxil edin : ")
+    while "@" in email == False:
+        print("\"E-mailinizdə \"@\" işarəsi mövcud deyil!\"")
+        email = input("Yenidən e-mailinizi daxil edin : ")
 
 
 def check_password(password):
     while len(password) != 3 or not password.isdigit():
         print("\"Şifrə 3 rəqəmli olmalıdır!\"")
-        input("Şifrənizi yenidən daxil edin : ")
+        password = input("Şifrənizi yenidən daxil edin : ")
 
 
 # Səhvliyi yoxlayan funksiyalar (ad, soyad, email, telefon, şifrə) ==> (son)
@@ -56,8 +56,8 @@ def user_add():
         check_name(input_name)
         input_surname = input("Soyadınızı daxil edin : ")
         check_surname(input_surname)
-        input_username = input("İstifadəçi adınızı daxil edin : ")
-        input_telefon = input("Telefon nömrənizi daxil edin : ")
+        input_username = input("İstifadəçi adınızı daxil edin : ")  ##
+        input_telefon = input("Telefon nömrənizi daxil edin (51, 051 yox) : ")
         check_telefon(input_telefon)
         input_email = input("E-mailinizi daxil edin : ")
         check_email(input_email)
