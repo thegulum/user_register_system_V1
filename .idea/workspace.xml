@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06a15331-a19a-4794-8783-4611f3d733ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/New_User.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/New_User.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log_reg_sys.py" beforeDir="false" afterPath="$PROJECT_DIR$/log_reg_sys.py" afterDir="false" />
     </list>
@@ -182,7 +181,28 @@
       <option name="project" value="LOCAL" />
       <updated>1598798012679</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v1.3.2">
+      <created>1598807623640</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598807623640</updated>
+    </task>
+    <task id="LOCAL-00009" summary="v1.3.2">
+      <created>1598807669644</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1598807669644</updated>
+    </task>
+    <task id="LOCAL-00010" summary="v1.3.2">
+      <created>1598807722073</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598807722073</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -213,6 +233,7 @@
     <MESSAGE value="v1.2" />
     <MESSAGE value="v1.3" />
     <MESSAGE value="v1.3.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.3.1" />
+    <MESSAGE value="v1.3.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.3.2" />
   </component>
 </project>

@@ -34,7 +34,7 @@ def check_telefon(telefon):
 
 
 def check_email(email):
-    while "@" in email is False:
+    while "@" not in email:
         print("\"E-mailinizdə \"@\" işarəsi mövcud deyil!\"")
         email = input("Yenidən e-mailinizi daxil edin : ")
 
@@ -57,7 +57,7 @@ def user_add():
         input_surname = input("Soyadınızı daxil edin : ")
         check_surname(input_surname)
         input_username = input("İstifadəçi adınızı daxil edin : ")  ##
-        input_telefon = input("Telefon nömrənizi daxil edin (51, 051 yox) : ")
+        input_telefon = "+994" + input("Telefon nömrənizi daxil edin (51, 051 yox) : ")
         check_telefon(input_telefon)
         input_email = input("E-mailinizi daxil edin : ")
         check_email(input_email)
@@ -115,11 +115,12 @@ def change_data_by_password():
 
 
 def find_data_by_name():
-    global find_by_name
+    find_by_name = input("Məlumatı tapmaq üçün tələbə adını daxil edin : ")
     for user in istifadeci_bazasi:
         if find_by_name == user.name:
-            find_by_name = input("Məlumatı tapmaq üçün tələbə adını daxil edin : ")
-            print(find_by_name)
+            print(
+                f"{user.name} / {user.surname} / {user.username} / "
+                f"{user.telefon} / {user.email} / {user.telefon} / {user.password}")
 
 
 find_data_by_name()
