@@ -126,4 +126,4 @@ find_data_by_name()
 # İstifadəçi məlumatlarını koda görə dəyiş (son)
 
 
-### not: is-le == in ferqi ###№
+### not: is-le == in ferqi ###
