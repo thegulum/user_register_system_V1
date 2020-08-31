@@ -1,4 +1,32 @@
+import check_functions
+import json
+from check_data import data
+import check_data
+
 istifadeci_bazasi = []
+
+
+class GenDict(dict):
+    def __init__(self):
+        self = dict()
+
+    def add_key_value(self, key, value):
+        self[key] = value
+
+
+data = GenDict()
+data.add_key_value('students', [])
+
+
+def create_dict(_name, _surname, _username, _telefon, _email, _password):
+    inner_dict = GenDict()
+    inner_dict.add_key_value('ad', _name)
+    inner_dict.add_key_value('soyad', _surname)
+    inner_dict.add_key_value('istifadeci', _username)
+    inner_dict.add_key_value('telefon', _telefon)
+    inner_dict.add_key_value('email', _email)
+    inner_dict.add_key_value('password', _password)
+    return inner_dict
 
 
 class User:
@@ -14,82 +42,51 @@ class User:
         return f"<Sizin adınız {self.name}, soyadınız isə {self.surname}>"
 
 
-def check_name(name):  # ?
-    global _name
-    while not name.isalpha():
-        print("\"Adınızda yalnız əlifbadan istifadə edə bilərsiniz!\"")
-        name = input("Yenidən adınızı yenidən daxil edin : ")
-    _name = name
-
-
-# Səhvliyi yoxlayan funksiyalar (ad, soyad, email, telefon, şifrə) ==> (başlanğıc)
-def check_surname(surname):  # ?
-    global _surname
-    while not surname.isalpha():
-        print("\"Yalnız əlifbadan istifadə edə bilərsiniz!\"")
-        surname = input("Yenidən soyadınızı yenidən daxil edin : ")
-    _surname = surname
-
-
-def check_telefon(telefon):
-    global _telefon
-    while not len(telefon) == 9 or not telefon.isdigit():
-        print("\"Səhvlik! +994 əlavə etməyin, yaxud yalnız rəqəmlərdən istifadə edin!\"")
-        telefon = input("Yenidən telefon nömrənizi daxil edin : ")
-    _telefon = telefon
-
-
-def check_email(email):
-    global _email
-    while "@" not in email:
-        print("\"E-mailinizdə \"@\" işarəsi mövcud deyil!\"")
-        email = input("Yenidən e-mailinizi daxil edin : ")
-    _email = email
-
-
-def check_password(password):
-    global _password
-    while len(password) != 3 or not password.isdigit():
-        print("\"Şifrə 3 rəqəmli olmalıdır!\"")
-        password = input("Şifrənizi yenidən daxil edin : ")
-    _password = password
-
-
-# Səhvliyi yoxlayan funksiyalar (ad, soyad, email, telefon, şifrə) ==> (son)
-
 # İstifadəçi əlavə etmək üçün funksiya (başlanğıc)
+def _name(args):
+    pass
+
+
 def user_add():
     i = 0
     user_count = int(input("Neçə istifadəçi daxil etmək istəyirsiniz? (rəqəm daxil edin) : "))
     while i < user_count:
         input_name = input("Adınızı daxil edin : ")
-        check_name(input_name)
+        check_functions.check_name(input_name)
         input_surname = input("Soyadınızı daxil edin : ")
-        check_surname(input_surname)
+        check_functions.check_surname(input_surname)
         input_username = input("İstifadəçi adınızı daxil edin : ")  ##
         input_telefon = input("Telefon nömrənizi daxil edin (51, 051 yox) : +994")
-        check_telefon(input_telefon)
+        check_functions.check_telefon(input_telefon)
         input_email = input("E-mailinizi daxil edin : ")
-        check_email(input_email)
+        check_functions.check_email(input_email)
         input_password = input("Şifrənizi daxil edin : ")
-        check_password(input_password)
+        check_functions.check_password(input_password)
         i += 1
-        istifadeci_bazasi.append(
-            User(_name, _surname, input_username, _telefon, _email, _password))
+        data['students'].append(
+            create_dict(check_functions._name, check_functions._surname, check_functions._username,
+                        check_functions.check_telefon,
+                        check_functions.email, check_functions.password))
 
-
-user_add()
-
+        user_add()
+        with open('user_db.json', 'w') as databaza:
+            json.dump(data, databaza)
 
 # İstifadəçi əlavə etmək üçün funksiya (son)
 
 
 # İstifadəçi məlumatlarını göstər (başlanğıc)
 def data_show():
-    data = istifadeci_bazasi
-    print(data)
-
-
+    i = 1
+    for user in data['student']:
+        print(f'student => {i}')
+        print(user['ad'])
+        print(user['soyad'])
+        print(user['istifadeci'])
+        print(user['telefon'])
+        print(user['istifadeci'])
+        print(user['password'])
+        i += 1
 # İstifadəçi məlumatlarını göstər (son)
 
 
@@ -127,7 +124,7 @@ def change_data_by_password():
 def find_data_by_name():
     find_by_name = input("Məlumatı tapmaq üçün tələbə adını daxil edin : ")
     for user in istifadeci_bazasi:
-        if find_by_name == user._name:
+        if find_by_name == user.name:
             print(
                 f"{user.name} / {user.surname} / {user.username} / {user.telefon} / {user.email} / {user.password}")
 
