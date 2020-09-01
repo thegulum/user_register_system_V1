@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06a15331-a19a-4794-8783-4611f3d733ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/check_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/check_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/check_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log_reg_sys.py" beforeDir="false" afterPath="$PROJECT_DIR$/log_reg_sys.py" afterDir="false" />
@@ -232,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598813890070</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="v1.3.5">
+      <created>1598895463340</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598895463340</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -266,6 +272,7 @@
     <MESSAGE value="v1.3.2" />
     <MESSAGE value="v1.3.3" />
     <MESSAGE value="v1.3.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.3.4" />
+    <MESSAGE value="v1.3.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.3.5" />
   </component>
 </project>

@@ -1,7 +1,5 @@
 import check_functions
 import json
-from check_data import data
-import check_data
 
 istifadeci_bazasi = []
 
@@ -43,8 +41,6 @@ class User:
 
 
 # İstifadəçi əlavə etmək üçün funksiya (başlanğıc)
-def _name(args):
-    pass
 
 
 def user_add():
@@ -72,6 +68,7 @@ def user_add():
         with open('user_db.json', 'w') as databaza:
             json.dump(data, databaza)
 
+
 # İstifadəçi əlavə etmək üçün funksiya (son)
 
 
@@ -87,19 +84,23 @@ def data_show():
         print(user['istifadeci'])
         print(user['password'])
         i += 1
+
+
 # İstifadəçi məlumatlarını göstər (son)
 
 
 # İstifadəçi məlumatlarını koda görə sil (başlanğıc)
 def delete_user_by_password():
     delete_by_password = int(input("Məlumatları silmək üçün istifadəçi şifrəsini daxil edin : "))
-    for user in istifadeci_bazasi:
-        if delete_by_password == user.password:
-            print(f"Təyin olunan istifadəçi ({user.name}) məlumatları silindi!")
-            istifadeci_bazasi.remove(user)
-            break
-    else:
-        print("Bu şifrədə istifadəçi tapılmadı!")
+    for user in data['students']:
+        if delete_by_password is user['password']:
+            print(f"Təyin olunan istifadəçi ({user['name']}) məlumatları silindi!")
+            data['students'].remove(user)
+            with open('user_db.json', 'w') as connect:
+                json.dump(data, connect)
+            break  #
+        else:
+            print("Bu şifrədə istifadəçi tapılmadı!")
 
 
 # İstifadəçi məlumatlarını koda görə sil (son)
@@ -107,29 +108,37 @@ def delete_user_by_password():
 # İstifadəçi məlumatlarını koda görə dəyiş (başlanğıc)
 def change_data_by_password():
     change_by_password = input("Məlumat(lar)ı dəyişmək üçün istifadəçi şifrəsi daxil edin : ")
-    for user in istifadeci_bazasi:
-        if change_by_password == user.password:
-            user.name = input("Yeni adınızı daxil edin : ")
-            user.surname = input("Yeni soyadınızı daxil edin : ")
-            user.username = input("Yeni istifadəçi adınızı daxil edin : ")
-            user.telefon = input("Yeni telefon nömrənizi daxil edin : ")
-            user.email = input("Yeni e-mailinizi daxil edin : ")
-            istifadeci_bazasi.append(
-                User(user.name, user.surname, user.username, user.telefon, user.email, user.password))
-            print(f"{user.name} / {user.surname} / {user.username} / {user.password}")
-        else:
-            print("Bu şifrədə istifadəçi tapılmadı!")
+    for user in data['students']:
+        if change_by_password is user['password']:
+            new_name = input("Adınızı daxil edin!")
+            while not new_name.isalpha():
+                print("\"Adınızda yalnız əlifbadan istifadə edə bilərsiniz!\"")
+                new_name = input("Yenidən adınızı yenidən daxil edin : ")
+            user['ad'] = new_name
+            new_surname = input("Soyadınızı daxil edin!")
+            while not new_surname.isalpha():
+                print("\"Yalnız əlifbadan istifadə edə bilərsiniz!\"")
+                new_surname = input("Yenidən soyadınızı yenidən daxil edin : ")
+            user['surname'] = new_surname
+            new_telefon = input('Telefon nömrənizi daxil edin : ')
+            while not len(new_telefon) == 9 or not new_telefon.isdigit():
+                print("\"Səhvlik! +994 əlavə etməyin, yaxud yalnız rəqəmlərdən istifadə edin!\"")
+                new_telefon = input("Yenidən telefon nömrənizi daxil edin : ")
+            user['telefon'] = new_telefon
+            new_email = input('E-mailinizi daxil edin : ')
+            while "@" not in new_email:
+                print("\"E-mailinizdə \"@\" işarəsi mövcud deyil!\"")
+                new_email = input("Yenidən e-mailinizi daxil edin : ")
+            user['email'] = new_email
+            new_password = input('Şifrənizi daxil edin : ')
+            while len(new_password) != 3 or not new_password.isdigit():
+                print("\"Şifrə 3 rəqəmli olmalıdır!\"")
+                new_password = input("Yenidən şifrənizi daxil edin : ")
+            user['password'] = new_password
+            with open('user_db.json', 'w') as connect:
+                json.dump(data, connect)
+                break
 
-
-def find_data_by_name():
-    find_by_name = input("Məlumatı tapmaq üçün tələbə adını daxil edin : ")
-    for user in istifadeci_bazasi:
-        if find_by_name == user.name:
-            print(
-                f"{user.name} / {user.surname} / {user.username} / {user.telefon} / {user.email} / {user.password}")
-
-
-find_data_by_name()
 # İstifadəçi məlumatlarını koda görə dəyiş (son)
 
 
